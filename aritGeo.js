@@ -8,7 +8,8 @@ function aritGeo(arrNums) {
     // test for arithmetic progression
     for (let i = 1; i < arrNums.length; i += 1) {
       // loop through elements
-      if (arrNums[i] === (arrNums[0] + ((i - 1) * aritDist))) { // arithmetic progression formula
+      if ((arrNums[i] - arrNums[i - 1]) !== aritDist) {
+        // arithmetic progression formula
         arit = false;
       }
     }
