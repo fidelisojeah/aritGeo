@@ -3,23 +3,25 @@ module.exports = {
   aritGeo: (arrNums) => {
     if (Array.isArray(arrNums)) {
       if (!arrNums.some(isNaN)) {
+        // variable declaration
         // arithmetic distance
         const aritDist = arrNums[1] - arrNums[0];
         // geometric distance
         const geoDist = arrNums[1] / arrNums[0];
         let arit = true;
         let geo = true;
-        for (let i = 1; i < arrNums.length; i += 1) {
-          // checking for arithmetric progression
+        for (let i = 1; i < arrNums.length; i += 1) { // loop through all elements
           if ((arrNums[i] - arrNums[i - 1]) !== aritDist) {
+            // checking for nonarithmetric progression
             arit = false;
           }
-          // checking for geometric progression
           if ((arrNums[i] / arrNums[i - 1]) !== geoDist) {
+            // checking for non geometric progression
             geo = false;
           }
         }
         if (arit) {
+          // if arit has not been changed to false by virtue of non arithmetric progression
           return 'Arithmetric';
         } else if (geo) {
           return 'Geometric';
@@ -30,37 +32,6 @@ module.exports = {
     } else {
       return 0;
     }
-    return -1;
+    return -1; // default value (signifies lack of Progression and errors)
   },
 };
-/* let arit = true;
-    let geo = true;
-    // check if array or not
-    if (arrNums.length >= 1) {
-      
-      
-
-      // test for arithmetic progression
-      for (let i = 1; i < arrNums.length; i += 3) {
-        // loop through elements
-        // if ((arrNums[i] - arrNums[i - 1]) !== aritDist) {
-        if (((arrNums[i] - arrNums[i - 1]) !== aritDist) ||
-          (arrNums[i + 1] - arrNums[i]) !== aritDist) {
-          // if (arrNums[i] === (arrNums[0] + ((i - 1) * aritDist))) //arithmetic progression formula
-          arit = false;
-        }
-        if (arrNums[i] / arrNums[i - 1] !== geoDist ||
-          arrNums[i + 1] / arrNums[i] !== geoDist) {
-          geo = false;
-        }
-      }
-      if (arit) {
-        return 'Arithmetric';
-      } else if (geo) {
-        return 'Geometric';
-      }
-    } else {
-      return 0;
-    }
-    return -1;
-  }*/
